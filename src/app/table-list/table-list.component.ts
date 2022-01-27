@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Element } from '../Interfaces/element';
+import { ElementsRow } from '../Interfaces/elements-row';
 import { RemapperService } from '../Services/remapper.service';
 import { TableService } from '../Services/table.service';
 
@@ -9,8 +10,9 @@ import { TableService } from '../Services/table.service';
   styleUrls: ['./table-list.component.css'],
 })
 export class TableListComponent implements OnInit {
-  localTable: Element[] = [];
+  localTable: ElementsRow[] = [];
 
+   
 
   constructor(
     private tableService: TableService,
@@ -22,7 +24,22 @@ export class TableListComponent implements OnInit {
     this.tableService.PopulateTable().subscribe((data: any) => {
       next: this.tableService.elements = this.remapper.remap(data);
       this.localTable = this.tableService.GetTable();
-      console.log(this.localTable);
+      // console.log(this.localTable);
     });
+
+
+
+  }
+
+  GetRowspan(rowElement:Element,rowLength:number): number {
+
+    let colspan = 0;
+    if(rowElement.symbol =="")
+    {
+      colspan = 19 - rowLength
+
+    }
+
+    return colspan;
   }
 }
