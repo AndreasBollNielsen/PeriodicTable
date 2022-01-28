@@ -19,6 +19,8 @@ export class RemapperService {
         number: element.number,
         period: element.period,
         symbol: element.symbol,
+        category: element.category,
+        special: false
       };
 
       //filter special elements
@@ -35,8 +37,12 @@ export class RemapperService {
         remapped.push(remappedElement);
       } else {
         let deepcopy = JSON.parse(JSON.stringify(remappedElement));
+        deepcopy.special = true;
         specialElements.push(deepcopy);
       }
+
+      //add categories to temp
+
     }
 
     let nestedTable: ElementsRow[] = [];
@@ -61,6 +67,8 @@ export class RemapperService {
               period: 0,
               symbol: '',
               atomic_mass: 0,
+              category: "",
+              special: true
             };
             temp.push(newelement);
           }
@@ -84,6 +92,7 @@ export class RemapperService {
 
       for (let element of specialElements) {
         if (element.period == period) {
+          element.special = true;
           temp.push(element);
         }
       }
@@ -95,6 +104,8 @@ export class RemapperService {
         period: 0,
         symbol: '',
         atomic_mass: 0,
+        category: "",
+        special: true
       };
       temp.splice(0,0,newelement);
 
@@ -102,7 +113,7 @@ export class RemapperService {
       nestedTable.push(rowElements);
     }
 
-    console.log(nestedTable);
+    // console.log(nestedTable);
     return nestedTable;
   }
 }

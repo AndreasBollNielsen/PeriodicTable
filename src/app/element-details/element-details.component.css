@@ -1,0 +1,18 @@
+.position
+{
+  position:absolute;
+  width: 30%;
+  margin-left: 15%;
+  margin-right: auto;
+}
+
+.background{
+  background-color: green;
+}
+
+.elementBorder{
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: black;
+}

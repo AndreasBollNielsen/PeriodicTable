@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElementDetailsComponent implements OnInit {
 
+  categories: string[] =["diatomic nonmetal","alkali metal","noble gas","transition metal","alkaline earth metal","metalloid","polyatomic nonmetal","post-transition metal","lanthanide","actinide",];
+
   constructor() { }
 
   ngOnInit(): void {

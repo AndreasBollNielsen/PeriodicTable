@@ -8,16 +8,20 @@ import { Element } from '../Interfaces/element';
   styleUrls: ['./list-element.component.css'],
 })
 export class ListElementComponent implements OnInit {
-  @Input() name: string = '';
+
   @Input() elementData: Element = {
     name: '',
     atomic_mass: 0,
     number: 0,
     period: 0,
     symbol: '',
+    category: '',
+    special: false
   };
 
   constructor(private tableService: TableService) {}
 
   ngOnInit(): void {}
+
+
 }

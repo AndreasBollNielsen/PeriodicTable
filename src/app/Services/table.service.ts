@@ -19,5 +19,10 @@ export class TableService {
     return this.elements;
   }
 
+  GetElementInfo()
+  {
+    
+  }
+
   constructor(private http: HttpClient) {}
 }

@@ -1,25 +1,18 @@
-<!--
-<div class="container">
-  <div class="row" *ngFor="let name of myName">
-    <div class="col">
-      <app-list-element [name]="name"></app-list-element>
 
-    </div>
-  </div>
-</div> -->
 
 <h2 class="text-center">Periodic table</h2>
 
-<div class="container">
+<div class="fancyborder center p-2">
 
-  <table class="center">
+  <app-element-details></app-element-details>
+
+  <table class=" center">
     <tr *ngFor="let elementRow of localTable; index as i">
       <th
         *ngFor="let element of elementRow.PeriodRow"
         [attr.colspan]="GetRowspan(element, elementRow.PeriodRow.length)"
       >
-        <!-- <label >{{element.symbol}}</label> -->
-        <app-list-element [elementData]="element"></app-list-element>
+        <app-list-element [elementData]="element" [ngClass]="{paddingTop: element.special == true}"></app-list-element >
       </th>
     </tr>
   </table>

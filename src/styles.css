@@ -1,2 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.diatomic.nonmetal{
+  background-color: red;
+}
+
+.alkali.metal{
+  background-color: rgb(79, 89, 97);
+}
+
+.noble.gas{
+  background-color: rgb(41, 141, 230);
+}
+
+.transition.metal{
+  background-color: rgb(41, 201, 161);
+}
+
+.alkaline.earth.metal{
+  background-color: rgb(0, 250, 96);
+}
+
+.metalloid{
+  background-color: rgb(247, 0, 255);
+}
+
+.polyatomic.nonmetal{
+  background-color: rgb(157, 255, 0);
+}
+
+.post-transition.metal{
+  background-color: rgb(255, 136, 0);
+}
+
+.lanthanide{
+  background-color: rgb(179, 179, 179);
+}
+
+.actinide{
+  background-color: rgb(207, 207, 207);
+}

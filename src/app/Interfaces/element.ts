@@ -5,4 +5,6 @@ export interface Element {
   number:number;
   period:number;
   symbol:string;
+  category: string;
+  special: boolean;
 }

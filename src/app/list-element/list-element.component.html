@@ -1,5 +1,17 @@
+<div class="elementBorder size" *ngIf="elementData.symbol && elementData.period != 5" [class]="elementData.category" >
 
-<div class="border" *ngIf="elementData.symbol">
+  <div class="row smallfont">
+    <label>{{elementData.number}}</label>
 
-  <label> {{elementData.symbol}}</label>
+  </div>
+  <div class="row text-center">
+    <h4> {{elementData.symbol}}</h4>
+
+  </div>
+  <div class="row smallfont text-center">
+<label>{{elementData.atomic_mass |number: '1.2-2'}}</label>
+  </div>
+
+
+
 </div>
