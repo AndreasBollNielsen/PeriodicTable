@@ -12,6 +12,7 @@ import { TableService } from '../Services/table.service';
 export class TableListComponent implements OnInit {
   localTable: ElementsRow[] = [];
 
+
   constructor(
     private tableService: TableService,
     private remapper: RemapperService
@@ -33,4 +34,9 @@ export class TableListComponent implements OnInit {
 
     return colspan;
   }
+
+  // testclick() {
+  //   this.tableService.Deselect();
+  //   console.log("test");
+  // }
 }

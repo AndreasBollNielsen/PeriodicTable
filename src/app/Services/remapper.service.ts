@@ -71,7 +71,14 @@ export class RemapperService {
 
           if (element.number == 57 || element.number == 89) {
             let deepcopy = JSON.parse(JSON.stringify(element));
-            element.symbol = 'X';
+           if(element.number == 57)
+           {
+             element.symbol ='71';
+           }
+           else
+           {
+             element.symbol = '103';
+           }
           }
         }
       }

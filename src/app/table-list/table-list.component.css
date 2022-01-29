@@ -6,7 +6,7 @@
 .fancyborder{
   border-style: solid;
   border-width: 2px;
-  border-color: green;
+  border-color: rgb(0, 24, 48);
   border-radius: 10px;
   width: 74%;
 }

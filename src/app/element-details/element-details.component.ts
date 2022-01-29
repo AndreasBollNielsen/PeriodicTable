@@ -20,8 +20,6 @@ elementInfo: Element;
 
     this.dataService.callback.subscribe((data: Element)=>{
       next: this.elementInfo = data;
-      console.log(this.elementInfo);
-
     })
 
   }

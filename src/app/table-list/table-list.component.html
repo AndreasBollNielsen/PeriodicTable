@@ -1,17 +1,14 @@
 
 
-<h2 class="text-center">Periodic table</h2>
+<h2 class="text-center ">Periodic Table of the Elements</h2>
 
-<div class="fancyborder tableBackground center p-2" >
+<div class="fancyborder tableBackground center p-2 elementShadow" >
 
   <app-element-details></app-element-details>
 
   <table class=" center">
     <tr *ngFor="let elementRow of localTable; index as i">
-      <th
-        *ngFor="let element of elementRow.PeriodRow"
-        [attr.colspan]="GetRowspan(element, elementRow.PeriodRow.length)"
-      >
+      <th *ngFor="let element of elementRow.PeriodRow" [attr.colspan]="GetRowspan(element, elementRow.PeriodRow.length)">
         <app-list-element [elementData]="element" [ngClass]="{paddingTop: element.special == true}"></app-list-element >
       </th>
     </tr>

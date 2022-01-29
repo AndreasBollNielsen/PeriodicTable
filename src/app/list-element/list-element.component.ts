@@ -18,9 +18,11 @@ export class ListElementComponent implements OnInit {
     special: false,
   };
   hover: boolean = false;
-  selected: boolean = false;
+  @Input() selected: boolean = false;
 
-  constructor(private tableService: TableService) {}
+  constructor(private tableService: TableService) {
+
+  }
 
   ngOnInit(): void {
     this.tableService.callback.subscribe(() => {
@@ -32,6 +34,16 @@ export class ListElementComponent implements OnInit {
         }
       }
     });
+
+    if(this.elementData.symbol == '71')
+    {
+      this.elementData.symbol = '71-89';
+    }
+    else if(this.elementData.symbol == '103')
+    {
+      this.elementData.symbol = '89-103';
+    }
+
   }
 
   GetDetails() {
@@ -41,8 +53,11 @@ export class ListElementComponent implements OnInit {
       period = period +2;
     }
 
-    this.tableService.GetElementInfo(period, number);
+    if(this.elementData.symbol.length < 3)
+    {
+      this.tableService.GetElementInfo(period, number);
+    }
   }
 
- 
+
 }

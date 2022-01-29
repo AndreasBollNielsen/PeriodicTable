@@ -23,16 +23,32 @@ export class TableService {
     let info: Element;
     let counter = 1;
 
-    let row = this.elements[period - counter].PeriodRow;
+    if(period > 0 && elementNum > 0)
+    {
+      let row = this.elements[period - counter].PeriodRow;
 
-    for (let element of row) {
-      if (element.number == elementNum) {
-        info = element;
-        this.callback.next(info);
-        break;
+      for (let element of row) {
+        if (element.number == elementNum) {
+          info = element;
+          this.callback.next(info);
+          break;
+        }
       }
     }
+
   }
 
+  //Deselection.. not yet implemented
+  // Deselect()
+  // {
+  //   let empty:Element = {name: '',
+  //   number: 0,
+  //   period: 0,
+  //   symbol: '',
+  //   atomic_mass: 0,
+  //   category: "",
+  //   special: false}
+  //    this.callback.next(empty);
+  // }
   constructor(private http: HttpClient) {}
 }
