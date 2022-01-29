@@ -16,3 +16,15 @@
   border-radius: 5px;
   border-color: black;
 }
+
+.infoSize{
+  width: 45%;
+}
+
+.infoPos{
+  position:absolute;
+  width: 30%;
+  margin-left: 15%;
+  margin-right: auto;
+ top:20%;
+}

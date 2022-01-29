@@ -1,7 +1,6 @@
-import { RemapperService } from './remapper.service';
 import { Element } from './../Interfaces/element';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ElementsRow } from '../Interfaces/elements-row';
 
@@ -10,7 +9,8 @@ import { ElementsRow } from '../Interfaces/elements-row';
 })
 export class TableService {
   elements: ElementsRow[] = [];
-  testlist: string[] = ['test', 'test2'];
+  callback = new Subject<Element>();
+
   PopulateTable(): Observable<any> {
     return this.http.get<any>('./assets/Data/PeriodicTableJSON.json');
   }
@@ -19,9 +19,19 @@ export class TableService {
     return this.elements;
   }
 
-  GetElementInfo()
-  {
-    
+  GetElementInfo(period: number, elementNum: number) {
+    let info: Element;
+    let counter = 1;
+
+    let row = this.elements[period - counter].PeriodRow;
+
+    for (let element of row) {
+      if (element.number == elementNum) {
+        info = element;
+        this.callback.next(info);
+        break;
+      }
+    }
   }
 
   constructor(private http: HttpClient) {}

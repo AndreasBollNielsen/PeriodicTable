@@ -1,11 +1,50 @@
-<div>
+<div></div>
+
+<div class="row position">
+
+  <div
+    class="col-md-3 elementBorder elementShadow"
+    *ngFor="let category of categories"
+    [class]="category"
+  >
+    <label>{{ category }}</label>
+  </div>
+
+
 
 </div>
 
-<div class="row position" >
-  <div class="col-md-4 elementBorder" *ngFor=" let category of categories" [class]="category">
-    <label>{{category}}</label>
+<div class="row  p-1 infoPos" *ngIf="elementInfo.symbol">
+  <!--right side-->
+  <div class="col-auto text-center ">
+    <div class="elementBorder elementShadow" [class]="elementInfo.category">
+      <div class="row">
+        <h4 class="col">{{ elementInfo.symbol }}</h4>
+      </div>
+
+      <div class="row p-1">
+        <div class="col smallfont ">
+          <span >atomic mass</span>
+          <h5  >{{elementInfo.atomic_mass | number: "1.2-2" }}</h5>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!--left side-->
+  <div class="col-auto text-center ">
+    <div class="elementBorder elementShadow" [class]="elementInfo.category">
+      <div class="row">
+        <label class="col smallfont">{{ elementInfo.number }}</label>
+      </div>
+
+      <div class="row p-1">
+        <div class="col">
+          <span>name</span>
+          <h4 >{{elementInfo.name}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

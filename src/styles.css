@@ -2,6 +2,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 
+.elementShadow{
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
 .diatomic.nonmetal{
   background-color: red;
 }
@@ -19,7 +23,7 @@
 }
 
 .alkaline.earth.metal{
-  background-color: rgb(0, 250, 96);
+  background-color: rgb(170, 235, 195);
 }
 
 .metalloid{

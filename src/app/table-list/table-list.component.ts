@@ -12,32 +12,23 @@ import { TableService } from '../Services/table.service';
 export class TableListComponent implements OnInit {
   localTable: ElementsRow[] = [];
 
-   
-
   constructor(
     private tableService: TableService,
     private remapper: RemapperService
   ) {}
 
   ngOnInit(): void {
-    let elements;
     this.tableService.PopulateTable().subscribe((data: any) => {
       next: this.tableService.elements = this.remapper.remap(data);
       this.localTable = this.tableService.GetTable();
       // console.log(this.localTable);
     });
-
-
-
   }
 
-  GetRowspan(rowElement:Element,rowLength:number): number {
-
+  GetRowspan(rowElement: Element, rowLength: number): number {
     let colspan = 0;
-    if(rowElement.symbol =="")
-    {
-      colspan = 19 - rowLength
-
+    if (rowElement.symbol == '') {
+      colspan = 19 - rowLength;
     }
 
     return colspan;

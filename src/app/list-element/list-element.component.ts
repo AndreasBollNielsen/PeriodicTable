@@ -8,7 +8,6 @@ import { Element } from '../Interfaces/element';
   styleUrls: ['./list-element.component.css'],
 })
 export class ListElementComponent implements OnInit {
-
   @Input() elementData: Element = {
     name: '',
     atomic_mass: 0,
@@ -16,12 +15,34 @@ export class ListElementComponent implements OnInit {
     period: 0,
     symbol: '',
     category: '',
-    special: false
+    special: false,
   };
+  hover: boolean = false;
+  selected: boolean = false;
 
   constructor(private tableService: TableService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.tableService.callback.subscribe(() => {
+      next: if (this.hover) {
+        this.selected = true;
+      } else {
+        if (this.selected) {
+          this.selected = false;
+        }
+      }
+    });
+  }
 
+  GetDetails() {
+    let period = this.elementData.period;
+    let number = this.elementData.number;
+    if (this.elementData.special) {
+      period = period +2;
+    }
 
+    this.tableService.GetElementInfo(period, number);
+  }
+
+ 
 }

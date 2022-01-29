@@ -56,11 +56,7 @@ export class RemapperService {
           temp.push(element);
 
           //add empty cells
-          if (
-            element.symbol == 'H' ||
-            element.symbol == 'Be' ||
-            element.symbol == 'Mg'
-          ) {
+          if ( element.symbol == 'H' ||element.symbol == 'Be' || element.symbol == 'Mg') {
             let newelement: Element = {
               name: '',
               number: 0,
