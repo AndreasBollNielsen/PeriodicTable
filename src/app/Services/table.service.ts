@@ -12,7 +12,11 @@ export class TableService {
   callback = new Subject<Element>();
 
   PopulateTable(): Observable<any> {
-    return this.http.get<any>('./assets/Data/PeriodicTableJSON.json');
+    //get data from local Json file
+    // return this.http.get<any>('./assets/Data/PeriodicTableJSON.json');
+
+    //get data from Rest API
+    return this.http.get<any>('http://localhost:3000/repos');
   }
 
   GetTable(): ElementsRow[] {
